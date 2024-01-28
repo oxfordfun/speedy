@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Matlab read serial %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%main_call
+%Size of the file "/mnt/ceph/home/y1113254/Horace_test/sqw/STO_300K_35meV.sqw" is 190692061367 bytes.
+
+%ans =
+
+%   1.9069e+11
+
+%Read 190692061367 bytes in 1003.566252 seconds: 181.211874 MB/s
+%Size of the file "/mnt/ceph/home/y1113254/Horace_test/sqw/STO_300K_35meV_h4.sqw" is 97036862336 bytes.
+
+%ans =
+
+%   9.7037e+10
+
+%Read 97036862336 bytes in 497.804300 seconds: 185.899486 MB/s
+%Size of the file "/mnt/ceph/home/y1113254/Horace_test/sqw/STO_400K_10.1meV.sqw" is 66808311941 bytes.
+
+%ans =
+
+%   6.6808e+10
+
+%Read 66808311941 bytes in 169.664574 seconds: 375.525484 MB/s
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Matlab read parallel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%main_call_p
+%Size of the file "/mnt/ceph/home/y1113254/Horace_test/sqw/STO_300K_35meV.sqw" is 190692061367 bytes.
+
+%ans =
+
+   %1.9069e+11
+
+%Starting parallel pool (parpool) using the 'local' profile ...
+%Connected to the parallel pool (number of workers: 30).
+%Read 190692061367 bytes in 213.855654 seconds: 850.377897 MB/s
+%Size of the file "/mnt/ceph/home/y1113254/Horace_test/sqw/STO_300K_35meV_h4.sqw" is 97036862336 bytes.
+
+%ans =
+
+%   9.7037e+10
+
+%Read 97036862336 bytes in 117.344840 seconds: 788.629166 MB/s
+%Read 66808311941 bytes in 73.084685 seconds: 871.774589 MB/s
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read serial %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fan@UbuntuFan:~/Downloads/Horest_Test/Fan_code$ python3 readFile.py ../sqw/STO_400K_10.1meV.sqw 10 
+File size: 63713.37 MB
+Total time spent: 47.41 seconds.
+Read speed: 1343.78 MB/s
+fan@UbuntuFan:~/Downloads/Horest_Test/Fan_code$ python3 readFile.py ../sqw/STO_300K_35meV.sqw 10 
+File size: 181858.12 MB
+Total time spent: 134.01 seconds.
+Read speed: 1357.01 MB/s
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read parallel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+fan@UbuntuFan:~/Downloads/Horest_Test/Fan_code$ python3 readFile.py ../sqw/STO_400K_10.1meV.sqw 10 --parallel
+File size: 63713.37 MB
+Using a pool of 4 workers for parallel processing.
+Total time spent: 33.86 seconds.
+Read speed: 1881.69 MB/s
+fan@UbuntuFan:~/Downloads/Horest_Test/Fan_code$ python3 readFile.py ../sqw/STO_300K_35meV.sqw 10 --parallel
+File size: 181858.12 MB
+Using a pool of 4 workers for parallel processing.
+Total time spent: 93.61 seconds.
+Read speed: 1942.64 MB/s
