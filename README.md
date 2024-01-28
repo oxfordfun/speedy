@@ -1,2 +1,2 @@
 # speedy
-Try read files with os, matlab, python etc.
+Try read files with bash, matlab, python etc.
