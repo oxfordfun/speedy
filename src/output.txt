@@ -44,8 +44,7 @@
 %Read 97036862336 bytes in 117.344840 seconds: 788.629166 MB/s
 %Read 66808311941 bytes in 73.084685 seconds: 871.774589 MB/s
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read serial %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read serial local %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fan@UbuntuFan:~/Downloads/Horest_Test/Fan_code$ python3 readFile.py ../sqw/STO_400K_10.1meV.sqw 10 
 File size: 63713.37 MB
 Total time spent: 47.41 seconds.
@@ -55,8 +54,7 @@ File size: 181858.12 MB
 Total time spent: 134.01 seconds.
 Read speed: 1357.01 MB/s
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read parallel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read parallel local %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 fan@UbuntuFan:~/Downloads/Horest_Test/Fan_code$ python3 readFile.py ../sqw/STO_400K_10.1meV.sqw 10 --parallel
 File size: 63713.37 MB
 Using a pool of 4 workers for parallel processing.
@@ -67,3 +65,34 @@ File size: 181858.12 MB
 Using a pool of 4 workers for parallel processing.
 Total time spent: 93.61 seconds.
 Read speed: 1942.64 MB/s
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read serial DAaaS Large %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[y1113254@host-172-16-111-243 fan_test_20240124]$ python3 readFile.py ../sqw/STO_300K_35meV.sqw 10 
+File size: 181858.12 MB
+Total time spent: 804.22 seconds.
+Read speed: 226.13 MB/s
+[y1113254@host-172-16-111-243 fan_test_20240124]$ python3 readFile.py ../sqw/STO_300K_35meV_h4.sqw 10 
+File size: 92541.56 MB
+Total time spent: 387.89 seconds.
+Read speed: 238.58 MB/s
+[y1113254@host-172-16-111-243 fan_test_20240124]$ python3 readFile.py ../sqw/STO_400K_10.1meV.sqw 10 
+File size: 63713.37 MB
+Total time spent: 308.15 seconds.
+Read speed: 206.76 MB/s
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Python read parallel DAaaS Large %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+[y1113254@host-172-16-111-243 fan_test_20240124]$ python3 readFile.py ../sqw/STO_300K_35meV.sqw 10 --parallel
+File size: 181858.12 MB
+Using a pool of 30 workers for parallel processing.
+Total time spent: 136.56 seconds.
+Read speed: 1331.74 MB/s
+[y1113254@host-172-16-111-243 fan_test_20240124]$ python3 readFile.py ../sqw/STO_300K_35meV_h4.sqw 10 --parallel
+File size: 92541.56 MB
+Using a pool of 30 workers for parallel processing.
+Total time spent: 67.95 seconds.
+Read speed: 1361.95 MB/s
+[y1113254@host-172-16-111-243 fan_test_20240124]$ python3 readFile.py ../sqw/STO_400K_10.1meV.sqw 10 --parallel
+File size: 63713.37 MB
+Using a pool of 30 workers for parallel processing.
+Total time spent: 46.21 seconds.
+Read speed: 1378.80 MB/s
