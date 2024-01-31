@@ -4,25 +4,30 @@ function [read_speed,elapsedTime] = fileReadSpeed_horace(filename,read_share,chu
         error('File not found');
     end
 
-    % Open the file
-    fileId = fopen(filename, 'r');
-    if fileId == -1
-        error('Error opening file');
-    end
-    fseek(fileId,0,"eof");
-    size = ftell(fileId)/4;
-    size_to_read = floor(size*read_share);
-    fseek(fileId,0,"bof");    
-    fclose(fileId);    
+    fileInfo = dir(filename);
+    fileSize = fileInfo.bytes/4;
+    size_to_read = floor(fileSize*read_share);
+    fprintf("Processing %d%% of %f4.0GB file\n",read_share*100,fileSize/(258*1024*1024))
+
+%     % Open the file
+%     fileId = fopen(filename, 'r');
+%     if fileId == -1
+%         error('Error opening file');
+%     end
+%     fseek(fileId,0,"eof");
+%     size = ftell(fileId)/4;
+% 
+%     fseek(fileId,0,"bof");    
+%     fclose(fileId);    
 
     % Initialize variables
     totalBytesRead = 0;
     n_chunks = floor(size_to_read/chunk_size)+1;
 
     acc = memmapfile(filename,'Format','single');
-    pos = floor(rand(1,n_chunks)*(size-2*chunk_size));
+    pos = floor(rand(1,n_chunks)*(fileSize-2*chunk_size));
     pos = sort(pos);
-    if max(pos)+chunk_size>size
+    if max(pos)+chunk_size>fileSize
         error('requested position is outside of the file ranges')
     end
     % Start the timer
