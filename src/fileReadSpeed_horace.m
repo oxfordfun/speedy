@@ -7,7 +7,7 @@ function [read_speed,elapsedTime] = fileReadSpeed_horace(filename,read_share,chu
     fileInfo = dir(filename);
     fileSize = fileInfo.bytes/4;
     size_to_read = floor(fileSize*read_share);
-    fprintf("Processing %d%% of %f4.0GB file\n",read_share*100,fileSize/(258*1024*1024))
+    fprintf("Processing %d%% of %.2f GB file\n",read_share*100,fileSize/(256*1024*1024))
 
 %     % Open the file
 %     fileId = fopen(filename, 'r');
