@@ -1,3 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Matlab random read paralle 63G %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+>> main_call_hor
+Read 1.335144e+02 MB in 0.619652 seconds: 215.466753 MB/s, across 14 chunks (random access, parallel).
+speed = 2.2593e+08
+time = 0.6197
+
+Read 1.277924e+03 MB in 4.037070 seconds: 316.547294 MB/s, across 134 chunks (random access, parallel).
+speed = 3.3192e+08
+time = 4.0371
+
+Read 1.275063e+04 MB in 33.117921 seconds: 385.006825 MB/s, across 1337 chunks (random access, parallel).
+speed = 4.0371e+08
+time = 33.1179
+
+Read 6.371498e+04 MB in 143.800782 seconds: 443.078127 MB/s, across 6681 chunks (random access, parallel).
+speed = 4.6460e+08
+time = 143.8008
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Matlab random read paralle 91G %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+> main_call_hor
+Read 1.907349e+02 MB in 1.218775 seconds: 156.497190 MB/s, across 20 chunks (random access, parallel).
+
+speed = 1.6410e+08
+time = 1.2188
+Read 1.859665e+03 MB in 5.971997 seconds: 311.397497 MB/s, across 195 chunks (random access, parallel).
+
+speed = 3.2652e+08
+time = 5.9720
+Read 1.851082e+04 MB in 48.407335 seconds: 382.396975 MB/s, across 1941 chunks (random access, parallel).
+speed = 4.0097e+08
+time = 48.4073
+
+Read 9.254456e+04 MB in 213.520039 seconds: 433.423280 MB/s, across 9704 chunks (random access, parallel).
+speed = 4.5448e+08
+time =213.5200
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Matlab random read paralle 178G %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>> main_call_hor
+Starting parallel pool (parpool) using the 'local' profile ...
+Connected to the parallel pool (number of workers: 30).
+Read 3.719330e+02 MB in 2.687909 seconds: 138.372610 MB/s, across 39 chunks (random access, parallel).
+speed = 1.4509e+08
+time = 2.6879
+
+Read 3.643036e+03 MB in 9.317458 seconds: 390.990320 MB/s, across 382 chunks (random access, parallel).
+speed = 4.0998e+08
+time = 9.3175
+
+Read 3.637314e+04 MB in 90.036894 seconds: 403.980378 MB/s, across 3814 chunks (random access, parallel).
+speed = 4.2360e+08
+time = 90.0369
+
+Read 1.818657e+05 MB in 430.280812 seconds: 422.667447 MB/s, across 19070 chunks (random access, parallel).
+speed = 4.4320e+08
+time = 430.2808
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Matlab read serial %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %main_call
