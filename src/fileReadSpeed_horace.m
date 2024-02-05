@@ -40,9 +40,9 @@ function [read_speed,elapsedTime] = fileReadSpeed_horace(filename,read_share,chu
         %[dataRead, bytesRead] = fread(fileId, chunk_size, 'uint8');
         totalBytesRead = totalBytesRead + numel(data)*4;
         ic = ic+1;
-        if ic>100
+        if rem(ic,100) == 0;
             fprintf('step %d#%d\n',i,n_chunks);
-            ic = 0;
+
         end
     end
 

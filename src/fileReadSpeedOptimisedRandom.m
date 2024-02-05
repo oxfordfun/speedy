@@ -29,7 +29,9 @@ function [read_speed, elapsedTime, n_chunks] = fileReadSpeedOptimisedRandom(file
     
     % Manually calculate random start positions for each chunk
     start_positions_bytes = 1 + floor(rand(1, n_chunks) * (max_start_byte - 1));
+    start_positions_bytes = sort(start_positions_bytes);    
 
+    ic = 0;
     totalBytesRead = 0;
     tic; % Start timing
 
@@ -43,6 +45,12 @@ function [read_speed, elapsedTime, n_chunks] = fileReadSpeedOptimisedRandom(file
         % Read the chunk and count bytes
         [data, elementsRead] = fread(fileId, actual_chunk_size, 'uint8');
         totalBytesRead = totalBytesRead + numel(data);
+        ic = ic+1;
+        if ic>100
+            fprintf('step %d#%d\n',i,n_chunks);
+            ic = 0;
+        end
+        
     end
 
     elapsedTime = toc; % Stop timing
