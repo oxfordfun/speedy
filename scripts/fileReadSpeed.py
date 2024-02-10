@@ -22,11 +22,12 @@ def file_read_speed(filename, read_share, chunk_size):
     if fileSizeBytes % 4 != 0:
         print("Warning: File size is not a multiple of 4 bytes. Truncating to nearest float32 boundary.")
     size_to_read = int(fileSize * read_share)
-    print(f"Processing {read_share*100}% of {fileSizeBytes/(1024*1024*1024):.2f} GB file")
+    print(f"Processing {read_share*100}% of {fileSizeBytes/(1024*1024*1024):.2f} GB file, which is {round(size_to_read/(1024*1024))} MB float (4 bytes)")
 
     # Initialize variables
     totalBytesRead = 0
     n_chunks = int(size_to_read / chunk_size) + 1
+    print(f"Number of chunks: {n_chunks}")
 
     # Create a memory map to the file, ensuring it fits the data size
     file = np.memmap(filename, dtype='float32', mode='r', shape=(fileSize,))
