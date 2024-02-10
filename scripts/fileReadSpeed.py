@@ -1,3 +1,9 @@
+# It measures the speed of reading a specified share of a file 
+# --- by accessing the file in small chunks, (10k to 10M) 
+# --- using a memory-mapped file approach. 
+# usage
+# python3 fileReadSpeed.py path/to/your/file 0.002 10240
+
 import numpy as np
 import os
 import time
@@ -55,11 +61,11 @@ def file_read_speed(filename, read_share, chunk_size):
     return read_speed, elapsedTime
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python3 fileReadSpeed.py <filename>")
+    if len(sys.argv) < 4:
+        print("Usage: python3 fileReadSpeed.py <filename> <read_share> <chunk_size>")
         sys.exit(1)
 
-    filename = sys.argv[1]  # Get the filename from the command line arguments
-    read_share = 0.002  # Example: Read 10% of the file
-    chunk_size = 10240  # Example: Read in chunks of 1024 floats
+    filename = sys.argv[1]  # Filename from the command line
+    read_share = float(sys.argv[2])  # Read share as a decimal (e.g., 0.1 for 10%)
+    chunk_size = int(sys.argv[3])  # Chunk size in number of floats
     file_read_speed(filename, read_share, chunk_size)
