@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # It measures the speed of reading a specified share of a file 
 # --- by accessing the file in small chunks, (10k to 10M) 
 # --- using a memory-mapped file approach. 
@@ -19,15 +20,15 @@ def file_read_speed(filename, read_share, chunk_size):
     # Get file size in bytes
     fileSizeBytes = os.path.getsize(filename)
     # Assuming the file contains single precision floats (4 bytes each)
-    fileSize = fileSizeBytes // 4  
-    if fileSizeBytes % 4 != 0:
-        print("Warning: File size is not a multiple of 4 bytes. Truncating to nearest float32 boundary.")
+    fileSize = fileSizeBytes//4
     size_to_read = int(fileSize * read_share)
-    print(f"Processing {read_share*100}% of {fileSizeBytes/(1024*1024*1024):.2f} GB file, which is {round(size_to_read/(1024*1024))} MB float (4 bytes)")
+    print(f"Processing {read_share*100}% of {fileSizeBytes/(1024*1024*1024):.2f} GB file")
 
     # Initialize variables
     totalBytesRead = 0
+    chunk_size  = chunk_size//4;
     n_chunks = int(size_to_read / chunk_size) + 1
+
     print(f"Number of chunks: {n_chunks}")
 
     # Create a memory map to the file, ensuring it fits the data size
