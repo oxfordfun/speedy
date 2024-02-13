@@ -4,7 +4,6 @@
 # usage
 # python3 fileReadSpeed.py path/to/your/file 0.002 10240
 
-from cgitb import reset
 import numpy as np
 import os
 import time
@@ -38,9 +37,6 @@ def file_read_speed(filename, read_share, chunk_size):
     if max(pos) + chunk_size > fileSize:
         raise ValueError('Requested position is outside of the file ranges')
 
-    res = dict.fromkeys(range(0,len(pos)));
-    condition = np.ones(chunk_size,dtype=bool)
-
     # Start the timer
     start_time = time.time()
 
@@ -48,9 +44,7 @@ def file_read_speed(filename, read_share, chunk_size):
     for i, p in enumerate(pos):
         data = file[p:p+chunk_size]
         totalBytesRead += data.size * data.itemsize
-        #print(np.extract(condition,data))
-        res[i] = np.extract(condition,data);
-        if (i + 1) % 1000 == 0:
+        if (i + 1) % 100 == 0:
             print(f'step {i + 1}#{n_chunks}')
 
     # Stop the timer
@@ -76,4 +70,3 @@ if __name__ == "__main__":
     read_share = float(sys.argv[2])  # Read share as a decimal (e.g., 0.1 for 10%)
     chunk_size = int(sys.argv[3])  # Chunk size in number of floats
     file_read_speed(filename, read_share, chunk_size)
-    
